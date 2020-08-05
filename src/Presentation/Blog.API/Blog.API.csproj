@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..</DockerfileContext>
+    <Version>1.0.0</Version>
+    <Authors>Eyüp Gevenim</Authors>
+    <Product>Asp.Net Core Blog API</Product>
+    <Title>Asp.Net Core Blog API</Title>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/eyupgevenim</PackageProjectUrl>
+    <PackageTags>aspnetcore, aspnet-core</PackageTags>
+    <Description>Asp.Net core web api architectural</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Copyright>Copyright © Eyüp Gevenim</Copyright>
+    <RepositoryType>git</RepositoryType>
+    <NeutralLanguage>es-US</NeutralLanguage>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>Blog.API.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Resease|AnyCPU'">
+    <DocumentationFile>Blog.API.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="4.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.7.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
+    <PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="5.5.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.5.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.5.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUi" Version="5.5.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Blog.Core\Blog.Core.csproj" />
+    <ProjectReference Include="..\..\Libraries\Blog.Data\Blog.Data.csproj" />
+    <ProjectReference Include="..\..\Libraries\Blog.Services\Blog.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Blog.API.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
